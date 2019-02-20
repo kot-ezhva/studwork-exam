@@ -11,13 +11,18 @@
             >
                 {{link.name}}
             </router-link>
+
+            <SearchInput/>
         </nav>
     </header>
 </template>
 
 <script>
+    import SearchInput from '@/components/SearchInput.vue';
+
     export default {
         name: 'Header',
+        components: {SearchInput},
         data() {
             return {
                 links: [

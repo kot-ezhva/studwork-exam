@@ -2,15 +2,14 @@ import starship from '@/api/starship';
 
 const state = {
     count: 0,
-    currentPage: 1,
     pageItems: [],
     prevPage: null,
     nextPage: null,
 };
 
 const actions = {
-    getPage: ({ commit }, {page}) => new Promise((resolve, reject) => {
-        starship.getPage(page).then(res => {
+    getPage: ({commit}, {page, search}) => new Promise((resolve, reject) => {
+        starship.getPage(page, search).then(res => {
             const {
                 results,
                 count,
@@ -24,14 +23,12 @@ const actions = {
             resolve();
         }).catch(err => reject(err));
     }),
-    getItem: ({ state }, { id }) => new Promise((resolve, reject) => {
-
+    getItem: ({state}, {id}) => new Promise((resolve, reject) => {
         // TODO: Fix it
         /*const starship = state.pageItems.find((item) => parseInt(item.id) === parseInt(id));
         if (starship) {
             resolve(starship);
         }*/
-
         starship.getItem(id).then(res => {
             resolve(res.body);
         }).catch(err => reject(err));
@@ -49,7 +46,7 @@ const mutations = {
     setCount: (state, payload) => {
         state.count = payload;
     },
-    setPages: (state, { previous, next }) => {
+    setPages: (state, {previous, next}) => {
         state.nextPage = null;
         state.prevPage = null;
 

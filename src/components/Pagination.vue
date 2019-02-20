@@ -2,8 +2,10 @@
     <section class="pagination">
         <p class="pagination__total">Starships total: {{ count }}</p>
 
-        <button class="pagination__button" :disabled="!prevPage" @click="goPrev()">Prev</button>
-        <button class="pagination__button" :disabled="!nextPage" @click="goNext()">Next</button>
+        <template v-if="showButtons">
+            <button class="pagination__button" :disabled="!prevPage" @click="goPrev()">Prev</button>
+            <button class="pagination__button" :disabled="!nextPage" @click="goNext()">Next</button>
+        </template>
     </section>
 </template>
 
@@ -14,11 +16,13 @@
         name: 'Pagination',
         computed: {
             ...mapState({
-                // TODO: Show count
                 count: state => state.starships.count,
                 prevPage: state => state.starships.prevPage,
                 nextPage: state => state.starships.nextPage,
             }),
+            showButtons() {
+                return !!this.prevPage || !!this.nextPage;
+            },
         },
         methods: {
             goNext() {
@@ -28,7 +32,8 @@
                 this.goToPage(this.prevPage);
             },
             goToPage(page) {
-                this.$router.push({ path: '/', query: { page }});
+                const { search } = this.$route.query;
+                this.$router.push({ path: '/', query: { page, search }});
             }
         }
     }

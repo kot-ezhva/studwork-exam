@@ -1,5 +1,7 @@
 <template>
     <Loading class="starship-list" :loading="loading" :error="error">
+
+        <h1 v-if="isSearchResult">Search results:</h1>
         <StarshipItem
             v-for="(starship) in starships"
             :key="`starship_${starship.id}`"
@@ -22,21 +24,25 @@
         components: { StarshipItem, Loading, Pagination },
         mixins: [Common],
         beforeRouteUpdate(to, from, next) {
-            const { page } = to.query;
-            this.init(page).then(() => next());
+            const { page, search } = to.query;
+            this.init(page, search).then(() => next());
         },
         computed: {
             ...mapState({
                 starships: state => state.starships.pageItems,
             }),
+            isSearchResult() {
+                const { search } = this.$route.query;
+                return !!search;
+            },
         },
         created() {
-            const {page} = this.$route.query;
-            this.init(page);
+            const { page, search } = this.$route.query;
+            this.init(page, search);
         },
         methods: {
-            init(page = 1) {
-                return this.fetch('starships/getPage', { page });
+            init(page = 1, search) {
+                return this.fetch('starships/getPage', { page, search });
             },
         },
     };
