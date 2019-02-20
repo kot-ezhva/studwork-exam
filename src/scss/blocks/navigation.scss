@@ -1,0 +1,39 @@
+.navigation {
+    background: #EEE;
+    border-bottom: 1px solid #CCC;
+
+    &__link {
+        display: inline-block;
+        font-size: 16px;
+        padding: 15px;
+        text-decoration: none;
+        color: #727272;
+        font-weight: 300;
+
+        -webkit-transition: 0.2s;
+        -moz-transition: 0.2s;
+        -ms-transition: 0.2s;
+        -o-transition: 0.2s;
+        transition: 0.2s;
+
+        @include breakpoint(sm) {
+            padding: 15px 7px;
+        }
+
+        &:hover {
+            background-color: #DDD;
+        }
+
+        &_active {
+            background-color: #CCC;
+
+            &:hover {
+                background-color: #CCC;
+            }
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+.page {
+    &__title {
+        font-weight: 400;
+        font-size: 30px;
+        margin: 10px 0;
+        color: #333;
+    }
+
+    &__text {
+        line-height: 1.5;
+        font-size: 17px;
+        margin-bottom: 15px;
+
+        @include breakpoint(sm) {
+            font-size: 16px;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

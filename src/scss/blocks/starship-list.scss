@@ -1,0 +1,25 @@
+.starship-list {
+    &-item {
+        margin-bottom: 15px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+        padding-bottom: 15px;
+
+        &:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        &__title, &__description {
+            margin: 0;
+        }
+
+        &__title {
+            padding-bottom: 10px;
+        }
+
+        &__description {
+            line-height: 1.2;
+            color: #727272;
+        }
+    }
+}
