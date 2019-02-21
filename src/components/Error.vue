@@ -1,5 +1,5 @@
 <template>
-    <div class="error">
+    <div class="error box">
         <h1 class="error_title">{{ errorText }}</h1>
         <router-link to="/">
             Go to main page

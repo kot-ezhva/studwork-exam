@@ -1,6 +1,10 @@
 .navigation {
     &__wrap {
         display: flex;
+
+        @include breakpoint(sm) {
+            flex-wrap: wrap;
+        }
     }
 
     &__link {

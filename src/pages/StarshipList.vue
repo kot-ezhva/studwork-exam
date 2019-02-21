@@ -1,6 +1,6 @@
 <template>
     <Loading :loading="loading" :error="error">
-        <h1 v-if="isSearchResult">Search results:</h1>
+        <h1 v-if="isSearchResult" class="search-result__title">Search results:</h1>
 
         <div class="starship-list">
             <StarshipItem
@@ -8,6 +8,10 @@
                 :key="`starship_${starship.id}`"
                 :starship="starship"
             />
+
+            <div class="box" v-if="!starships.length">
+                <h2 class="starship-list__no-result">😿 Sorry, starships not found! Try another query </h2>
+            </div>
         </div>
 
         <Pagination/>

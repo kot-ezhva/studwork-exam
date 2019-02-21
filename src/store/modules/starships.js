@@ -23,12 +23,7 @@ const actions = {
             resolve();
         }).catch(err => reject(err));
     }),
-    getItem: ({state}, {id}) => new Promise((resolve, reject) => {
-        // TODO: Fix it
-        /*const starship = state.pageItems.find((item) => parseInt(item.id) === parseInt(id));
-        if (starship) {
-            resolve(starship);
-        }*/
+    getItem: ({}, {id}) => new Promise((resolve, reject) => {
         starship.getItem(id).then(res => {
             resolve(res.body);
         }).catch(err => reject(err));

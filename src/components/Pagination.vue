@@ -1,11 +1,10 @@
 <template>
     <section class="pagination">
-        <p class="pagination__total">Starships total: {{ count }}</p>
-
         <template v-if="showButtons">
             <Button :disabled="!prevPage" @click="goPrev()">Prev</Button>
             <Button :disabled="!nextPage" @click="goNext()">Next</Button>
         </template>
+        <p class="pagination__total">Starships total: {{ count }}</p>
     </section>
 </template>
 
