@@ -1,12 +1,16 @@
 .starship-view {
-    &__header {
-
-    }
-
     &__title {
         font-weight: 400;
         font-size: 30px;
-        margin: 10px 0;
+        margin: 10px 0 20px;
         color: #333;
+    }
+
+    &__value {
+        margin-bottom: 7px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 }

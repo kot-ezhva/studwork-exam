@@ -1,5 +1,5 @@
 <template>
-    <div class="search-input" @click="focus()">
+    <div class="search-input" @click="focus()" :class="{'show-close' : showClose}">
         <input
             class="search-input__input"
             type="text"
@@ -9,6 +9,9 @@
             @input="search()"
             @keyup.enter="doSearch()"
         >
+        <button class="search-input__clear" @click="clear()" v-show="showClose">
+            <span class="search-input__clear_icon"></span>
+        </button>
     </div>
 </template>
 
@@ -21,6 +24,11 @@
                 timeout: null,
                 query: this.$route.query.search || '',
             };
+        },
+        computed: {
+            showClose() {
+                return this.query;
+            },
         },
         methods: {
             focus() {
@@ -45,6 +53,10 @@
                     };
                 }
                 this.$router.push(to);
+            },
+            clear() {
+                this.query = '';
+                this.doSearch();
             },
         },
     }

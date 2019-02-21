@@ -3,29 +3,6 @@
     justify-content: space-between;
     flex-wrap: wrap;
 
-    &__button {
-        background: #d1ecf1;
-        color: #0c5460;
-        border: 1px solid #bee5eb;
-        padding: 5px 15px;
-        font-size: 16px;
-        border-radius: 4px;
-        cursor: pointer;
-
-        &:disabled {
-            opacity: .5;
-            cursor: not-allowed;
-
-            &:hover {
-                background: #d1ecf1;
-            }
-        }
-
-        &:hover {
-            background: #c2dce1;
-        }
-    }
-
     &__total {
         width: 100%;
         margin-top: 10px;

@@ -3,17 +3,19 @@
         <p class="pagination__total">Starships total: {{ count }}</p>
 
         <template v-if="showButtons">
-            <button class="pagination__button" :disabled="!prevPage" @click="goPrev()">Prev</button>
-            <button class="pagination__button" :disabled="!nextPage" @click="goNext()">Next</button>
+            <Button :disabled="!prevPage" @click="goPrev()">Prev</Button>
+            <Button :disabled="!nextPage" @click="goNext()">Next</Button>
         </template>
     </section>
 </template>
 
 <script>
     import { mapState } from 'vuex';
+    import Button from '@/components/Button.vue';
 
     export default {
         name: 'Pagination',
+        components: { Button },
         computed: {
             ...mapState({
                 count: state => state.starships.count,

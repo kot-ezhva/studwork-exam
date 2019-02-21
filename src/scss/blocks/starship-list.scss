@@ -1,25 +1,26 @@
 .starship-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
     &-item {
-        margin-bottom: 15px;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-        padding-bottom: 15px;
-
-        &:last-child {
-            margin-bottom: 0;
-            border-bottom: none;
-        }
-
-        &__title, &__description {
-            margin: 0;
-        }
+        width: 49%;
 
         &__title {
-            padding-bottom: 10px;
+            font-size: 26px;
+            color: #333;
+            font-weight: 400;
         }
 
-        &__description {
-            line-height: 1.2;
+        &__subtitle {
             color: #727272;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        &__footer {
+            padding-top: 5px;
+            text-align: right;
         }
     }
 }

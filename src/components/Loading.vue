@@ -2,7 +2,7 @@
     <section class="loading">
         <div v-if="loading" class="loading__text">
             <div class="loading__emoji">{{currentEmoji}}</div>
-            loading
+            loading, please wait
         </div>
 
         <Error v-else-if="showError" :status="error.status" />

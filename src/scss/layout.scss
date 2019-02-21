@@ -1,3 +1,9 @@
+.wrap {
+    background-image: linear-gradient(to left bottom, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+    min-height: 100%;
+    background-attachment: fixed;
+}
+
 .container {
     max-width: 1024px;
     width: 100%;
@@ -10,4 +16,12 @@
 .content {
     padding-top: 15px;
     padding-bottom: 15px;
+}
+
+.box {
+    background: #FFF;
+    border-radius: 4px;
+    padding: 10px 15px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, .2);
+    margin-bottom: 15px;
 }

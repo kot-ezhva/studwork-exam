@@ -1,12 +1,14 @@
 <template>
-    <Loading class="starship-list" :loading="loading" :error="error">
-
+    <Loading :loading="loading" :error="error">
         <h1 v-if="isSearchResult">Search results:</h1>
-        <StarshipItem
-            v-for="(starship) in starships"
-            :key="`starship_${starship.id}`"
-            :starship="starship"
-        />
+
+        <div class="starship-list">
+            <StarshipItem
+                v-for="(starship) in starships"
+                :key="`starship_${starship.id}`"
+                :starship="starship"
+            />
+        </div>
 
         <Pagination/>
     </Loading>
