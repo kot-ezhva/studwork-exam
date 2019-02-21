@@ -23,7 +23,7 @@ const actions = {
             resolve();
         }).catch(err => reject(err));
     }),
-    getItem: ({}, {id}) => new Promise((resolve, reject) => {
+    getItem: (_, {id}) => new Promise((resolve, reject) => {
         starship.getItem(id).then(res => {
             resolve(res.body);
         }).catch(err => reject(err));

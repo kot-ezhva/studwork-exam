@@ -10,7 +10,7 @@
             />
 
             <div class="box" v-if="!starships.length">
-                <h2 class="starship-list__no-result">😿 Sorry, starships not found! Try another query </h2>
+                <h2 class="starship-list__no-result">😿 Sorry, starships not found! Try another query. </h2>
             </div>
         </div>
 
