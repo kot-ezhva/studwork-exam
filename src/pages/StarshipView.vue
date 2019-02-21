@@ -60,6 +60,14 @@
                 <b>Cost: </b>
                 {{ starship.cost_in_credits }}
             </p>
+            <p class="starship-view__value">
+                <b>Created: </b>
+                {{ formatDate(starship.created) }}
+            </p>
+            <p class="starship-view__value">
+                <b>Edited: </b>
+                {{ formatDate(starship.edited) }}
+            </p>
         </div>
 
         <Button @click="goBack()">Go back</Button>
@@ -89,7 +97,10 @@
         methods: {
             goBack() {
                 this.$router.back();
-            }
+            },
+            formatDate(date) {
+                return new Date(date);
+            },
         },
     }
 </script>
